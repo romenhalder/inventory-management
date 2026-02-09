@@ -1,0 +1,56 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+
+spring:
+  application:
+    name: inventory-management
+
+  # H2 Database Configuration (for development)
+  datasource:
+    url: jdbc:h2:mem:bakery_db
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: 
+
+  # H2 Console (for viewing database in browser)
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+        format_sql: true
+
+  # File upload configuration
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 5MB
+      max-request-size: 10MB
+
+# JWT Configuration
+jwt:
+  secret: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
+  expiration: 86400000  # 24 hours in milliseconds
+  refresh-expiration: 604800000  # 7 days in milliseconds
+
+# Application Configuration
+app:
+  base-url: http://localhost:8080
+  frontend-url: http://localhost:5173
+  upload-dir: ./uploads/
+  allowed-file-types: jpg,jpeg,png,gif
+  max-file-size-mb: 5
+
+logging:
+  level:
+    com.romen.inventory: DEBUG
+    org.springframework.security: INFO

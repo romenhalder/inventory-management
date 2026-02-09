@@ -1,13 +1,14 @@
+// InventoryApplication.java
 package com.romen.inventory;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication
-public class InventoryManagementApplication {
-
+@EnableScheduling
+public class InventoryApplication {
 	public static void main(String[] args) {
-		SpringApplication.run(InventoryManagementApplication.class, args);
+		SpringApplication.run(InventoryApplication.class, args);
 	}
-
 }
